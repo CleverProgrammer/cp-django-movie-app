@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+
+<html>
+
+    <head>
+
+
+    </head>
+
+    <body>
+
+        <div style="width: 80%; margin: 0 auto; background-color: green;">
+
+            <form method="get" action="/search/">
+                <input type="text" name="query">
+                <input type="submit" value="Search">
+            </form>
+
+        </div>
+
+        {% for el in search_result %}
+        <div>
+                    	{{ el.fields.Name }}
+        </div>
+
+        	{% for photo in el.fields.Photos %}
+        		<img src='{{ photo.url }}' />
+        	{% endfor %}
+
+        	<img src='{{ el.fields.url }}' />
+        {% endfor %}
+
+
+    </body>
+
+
+
+</html>
