@@ -2,7 +2,6 @@
 {% load static %}
 
 <html>
-
     <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="{% static 'polls/app.css' %}" />
@@ -30,15 +29,34 @@
 					<div class="movies">
 						{% for el in search_result %}
                         	<div class="movies__item">
-                                <div class="movies__item-title">
+                                <!-- <div class="movies__item-title">
                                    {{ el.fields.Name }}
-                                </div>
+                                </div> -->
                                 <img class="movies__item-image" src='{{ el.fields.Photos.0.url }}' />
-                        	</div>
+                                <div class="movies__item-title">
+                                    <p>{{ el.fields.Name }} </p>
+                                </div>
+                            </div>
+
                         {% endfor %}
-					</div>
+
+                        {% for movie_title, movie_image_url in movies_stuff %}
+                        	<div class="movies__item">
+                        		<img class="movies__item-image" src='{{ movie_image_url }}' />
+                                <div class="movies__item-title">
+                                    <p>{{ movie_title }} </p>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+
+                        </div>
             	</div>
             </section>
+
+            <footer class="footer">
+				<p class="footer__text">Handcrafted with ❤️ @Cleverprogrammer LLC</p>
+            </footer>
 
         </div>
 
