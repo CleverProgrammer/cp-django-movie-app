@@ -1,35 +1,47 @@
 <!DOCTYPE html>
-
+{% load static %}
 
 <html>
 
     <head>
-
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{% static 'polls/app.css' %}" />
     </head>
 
     <body>
+        <div class="wrapper">
+            <nav class="nav">
+                <div class="container">
+                	<h1 class="nav__header">Clever Movie</h1>
+                </div>
+            </nav>
 
-        <div style="width: 80%; margin: 0 auto; background-color: green;">
+            <main class="main">
+                <div class="container">
+                	<form class="search-form" action="/search">
+						<input placeholder="enter a movie..." class="search-form__query" type="text" name="query"/>
+                        <span class="search-form__icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                    </form>
+                </div>
+            </main>
 
-            <form method="get" action="/search/">
-                <input type="text" name="query">
-                <input type="submit" value="Search">
-            </form>
+            <section class="result">
+            	<div class="container">
+					<div class="movies">
+						{% for el in search_result %}
+                        	<div class="movies__item">
+                                <div class="movies__item-title">
+                                   {{ el.fields.Name }}
+                                </div>
+                                <img class="movies__item-image" src='{{ el.fields.Photos.0.url }}' />
+                        	</div>
+                        {% endfor %}
+					</div>
+            	</div>
+            </section>
 
         </div>
 
-        {% for el in search_result %}
-        <div>
-                    	{{ el.fields.Name }}
-        </div>
-
-        	{% for photo in el.fields.Photos %}
-        		<img src='{{ photo.url }}' />
-        	{% endfor %}
-
-        	<img src='{{ el.fields.url }}' />
-        {% endfor %}
 
 
     </body>

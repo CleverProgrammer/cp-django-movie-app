@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Anton');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    content: " ";
+	border-bottom: 0.5rem solid #FCAB07;
+    z-index: 9999;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.nav {
+    margin-top: 0.5rem;
+    background: #202020;
+    height: 4.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav__header {
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-family: 'Anton', sans-serif;
+    color: #fff;
+}
+
+.search-form {
+    padding: 5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.search-form__query {
+    width: 20rem;
+    font-size: 1.4rem;
+    padding: 1rem 1.2rem;
+    font-family: 'Open Sans', sans-serif;
+	caret-color: #FCAB07;
+}
+
+.search-form__query:focus {
+    outline: none;
+}
+
+.search-form__icon {
+    background-color: #FCAB07;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.search-form__icon > .fa-search {
+    color: white;
+}
+
+.main {
+    background: #fc4a1a; /* fallback for old browsers */
+    background-image: url('./clock-pattern.png');
+}
+
+.result {
+    background-image: linear-gradient(#fff 0%, #FCA10D 150%);
+    height: auto;
+}
+
+.movies {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: scroll;
+}
+
+.movies::-webkit-scrollbar {
+    display: none;
+}
+
+.movies__item {
+    width: 33.33333%;
+    max-height: 26rem;
+}
+
+.movies__item-title {
+
+}
+
+.movies__item-image {
+    transition: 0.3s all ease-in-out;
+	width: 100%;
+    filter: brightness(35%);
+    height: auto;
+}
+
+.movies__item-image:hover {
+	filter: brightness(100%);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
