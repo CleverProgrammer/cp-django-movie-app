@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
+		<link rel="stylesheet" href="{% static 'polls/app.css' %}" />
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <nav class="nav">
+                <div class="container">
+                    <div class="nav__menu">
+                    	<a href="/new_movie" class="nav__item">Create movie</a>
+                		<a class="nav__header" href="/">Clever Movie</a>
+                    	<a href="/my_movies" class="nav__item">My movies</a>
+                    </div>
+                </div>
+            </nav>
+            <main class="main">
+                <div class="container">
+                    <h1>Create new movie</h1>
+                	<form class="movie-form" action="/create_movie" method="get">
+						<input placeholder="title" class="movie-form__title" type="text" name="title" />
+						<input placeholder="image url" class="movie-form__url" type="text" name="image_url" />
+						<input placeholder="description" class="movie-form__description" type="text" name="description" />
+						<input placeholder="rating" class="movie-form__rating" type="number" name="rating" />
+                        <button class="button">Submit</button>
+                    </form>
+                </div>
+            </main>
+
+
+            <footer class="footer">
+				<p class="footer__text"> @Cleverprogrammer LLC</p>
+            </footer>
+
+        </div>
+        <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+        <script src = "{% static 'polls/modal.min.js' %}"></script>
+        <script src = "{% static 'polls/app.js' %}"></script>
+
+    </body>
+
+
+
+</html>

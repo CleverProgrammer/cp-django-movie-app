@@ -19,44 +19,27 @@
                     </div>
                 </div>
             </nav>
-            <main class="main">
-                <div class="container">
-                	<form class="search-form" action="/search">
-						<input placeholder="enter a movie..." class="search-form__query" type="text" name="query" />
-                        <span class="search-form__icon"><i class="fa fa-search" aria-hidden="true"></i></span>
-                    </form>
-                </div>
-            </main>
 
             <section class="result">
             	<div class="container">
 					<div class="movies">
-						{% for el in search_result %}
-                            <div class="movies__item">
-                                <i class="movies__item-star fa fa-star hide"></i>
-                                <p class="movies__item-rating hide">{{ el.fields.PersonalRating }}/10</p>
-								<a href="#js-modal" id="modal-trigger" class="movies__item-expander hide">View Details</a>
-                                <img class="movies__item-image" src='{{ el.fields.Photos.0.url }}' />
-                                <div class="movies__item-title">
-                                    <p>{{ el.fields.Name }}</p>
-                                </div>
-                            </div>
-                        {% endfor %}
-
-
-                        {% for movie in movies %}
+                        {% for movie in my_movies %}
                         	<div class="movies__item">
+                                <form action='{{ "/my_movies/" |add:movie.id }}' method='get'>
+                                    <button class="movies__item-delete-button hide">
+                                        <i class="movies__item-delete fa fa-times" onclick="return confirm('Are you sure?')"></i>
+                                    </button>
+                                </form>
 								<i class="movies__item-star fa fa-star hide"></i>
-                                <p class="movies__item-rating hide">{{ movie.vote_average }}/10</p>
+                                <p class="movies__item-rating hide">{{ movie.fields.PersonalRating }}/10</p>
 								<a href="#" class="movies__item-expander hide">View Details</a>
-                        		<img class="movies__item-image" src='{{ "https://image.tmdb.org/t/p/w500" |add:movie.poster_path }}' />
+                                <img class="movies__item-image" src='{{ movie.fields.Photos.0.url }}' />
+
                                 <div class="movies__item-title">
-                                    <p>{{ movie.title }} </p>
+                                    <p>{{ movie.fields.Name }} </p>
                                 </div>
                             </div>
                         {% endfor %}
-
-
                      </div>
             	</div>
             </section>
